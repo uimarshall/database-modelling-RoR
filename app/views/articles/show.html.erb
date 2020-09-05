@@ -1,5 +1,10 @@
 <h1><%= @article.title %></h1>
 <p><%= @article.body %></p>
+<%= render partial: 'comments/form' %>
 <%= link_to "<< Back to Articles List", articles_path %>
 <%= link_to "delete", article_path(@article), method: :delete, data: {confirm: "Really delete the article?"} %>
 <%= link_to "edit", edit_article_path(@article) %>
+<h3>Comments (<%= @article.comments.size %>)</h3>
+<%# This means for each of the collectn of '@article.comments', give us the 'author_name'& 'comment.bobdy' as represented in the partial %>
+<%# The partial is _comment.html.erb and located inside the 'articles' folder - hence "render partial: 'articles/comment'" %>
+<%= render partial: 'articles/comment', collection: @article.comments %>
