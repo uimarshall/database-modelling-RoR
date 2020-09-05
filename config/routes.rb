@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :articles  do #This told Rails that we were going to follow the RESTful conventions for this model named Article. 
     resources :comments
   end
+  resources :tags
 end
